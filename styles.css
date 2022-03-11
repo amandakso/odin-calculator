@@ -13,6 +13,7 @@ button {
     padding: 20px;
     border-radius: 25px;
     background-color: silver;
+    height: 55px;
 }
 .buttons {
     display: flex;
