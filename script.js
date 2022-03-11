@@ -19,7 +19,7 @@ function divide(a,b) {
 };
 
 let op= {
-    first: e,
+    first: 2,
     operator: "*",
     second: 4,
 };
