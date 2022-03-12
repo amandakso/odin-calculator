@@ -10,6 +10,7 @@ let text= display.innerText;
 let digits= document.querySelectorAll(".digit");
 let operators=document.querySelectorAll(".operator");
 let equal=document.getElementById("equal");
+let clear=document.getElementById("clear");
 
 function add(a,b) {
     let c= parseFloat(a) + parseFloat(b);
@@ -83,6 +84,12 @@ for (i=0; i<operators.length; i++) {
 equal.addEventListener("click", (e) => {
     showResult(e);
 });
+
+clear.addEventListener("click", (e) => {
+    resetOp(e);
+    display.innerText=op.first;
+});
+
 
 
 function showNumber(e) {
