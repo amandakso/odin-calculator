@@ -2,6 +2,7 @@ let op= {
     first:"",
     operator:"",
     second: "",
+    result:"",
 };
 
 let display=document.getElementById("display");
@@ -10,23 +11,23 @@ let digits= document.querySelectorAll(".digit");
 let operators=document.querySelectorAll(".operator");
 
 function add(a,b) {
-    let c= a + b;
-    return c;
+    let c= parseFloat(a) + parseFloat(b);
+    console.log(c);
 };
 
 function subtract(a,b) {
     let c=a - b;
-    return c;
+    console.log(c);
 };
 
 function multiply(a,b) {
-    let c= a * b;
-    return c;
+    c= a * b;
+    console.log(c);
 }
 
 function divide(a,b) {
     let c= a / b;
-    return c;
+    console.log(c);
 };
 //operate function isn't working anymore???
 console.log(op.first);
@@ -96,16 +97,17 @@ function showOperator(e) {
         display.innerText=`${e.target.innerText}`
         op.operator= display.innerText;
         } else if (op.first !="" && op.operator !="" && op.second !="") {
-        let c=operate(op);
+            operate(op);
+        /*
         display.innerText=`${e.target.innerText}`;
         op.first=c;
         console.log(c);
         op.operator=display.innerText;
-        op.second="";
+        op.second=""; */
         } else if (op.first !="" && op.operator=="/" && op.second=="0") {
         display.innerText="ERROR";
     };
-   // removeListener2();
+  // removeListener2();
 };
 
 function removeListener1() {
