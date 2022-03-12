@@ -104,16 +104,15 @@ function showOperator(e) {
         if (op.first !="" && op.operator=="") {
         display.innerText=`${e.target.innerText}`
         op.operator= display.innerText;
+         } else if (op.first !="" && op.operator=="/" && op.second=="0") {
+         display.innerText="ERROR";
+         resetOp();
         } else if (op.first !="" && op.operator !="" && op.second !="") {
-            operate(op);
-        /*
+         operate(op);
+        op.first=op.result;
         display.innerText=`${e.target.innerText}`;
-        op.first=c;
-        console.log(c);
         op.operator=display.innerText;
-        op.second=""; */
-        } else if (op.first !="" && op.operator=="/" && op.second=="0") {
-        display.innerText="ERROR";
+        op.second="";
     };
   // removeListener2();
 };
@@ -126,6 +125,14 @@ function removeListener1() {
         console.log(op.second);
         })
 }
+
+function resetOp() {
+    op.first="";
+    op.second="";
+    op.operator=="";
+}
+
+/*
 function removeListener2() {
     operators[i].removeEventListener("click", (e) => {
         showOperator(e);
@@ -134,3 +141,4 @@ function removeListener2() {
         console.log(op.second);
     });
 };
+*/
