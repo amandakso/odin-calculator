@@ -64,4 +64,6 @@ for (i=0; i< digits.length; i++) {
 
 function showNumber(e) {
     display.innerText += `${e.target.innerText}`;
+    op.first= display.innerText;
+    console.log(op.first);
 };
