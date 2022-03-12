@@ -13,21 +13,29 @@ let operators=document.querySelectorAll(".operator");
 function add(a,b) {
     let c= parseFloat(a) + parseFloat(b);
     console.log(c);
+    op.result=c;
+    console.log(op.result);
 };
 
 function subtract(a,b) {
     let c=a - b;
     console.log(c);
+    op.result=c;
+    console.log(op.result);
 };
 
 function multiply(a,b) {
     c= a * b;
     console.log(c);
+    op.result=c;
+    console.log(op.result);
 }
 
 function divide(a,b) {
     let c= a / b;
     console.log(c);
+    op.result=c;
+    console.log(op.result);
 };
 //operate function isn't working anymore???
 console.log(op.first);
