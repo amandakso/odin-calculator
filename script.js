@@ -1,5 +1,5 @@
 let op= {
-    first: "",
+    first:"",
     operator:"",
     second: "",
 };
@@ -49,18 +49,40 @@ function operate(op) {
 for (i=0; i< digits.length; i++) {
     digits[i].addEventListener("click", (e) => {
     showNumber(e);
+    console.log(op.first);
+console.log(op.second);
+console.log(op.operator);
     });
 };
 for (i=0; i<operators.length; i++) {
     operators[i].addEventListener("click", (e) => {
         showOperator(e);
+        console.log(op.first);
+console.log(op.second);
+console.log(op.operator);
     });
 };
 
 function showNumber(e) {
-    display.innerText += `${e.target.innerText}`;
-    op.first= display.innerText;
-    console.log(op.first);
+        if (op.first==""){
+            display.innerText= `${e.target.innerText}`;
+            op.first=display.innerText;
+            console.log(op.first);
+        } else if (op.first !="" && op.operator=="") {
+            display.innerText +=`${e.target.innerText}`;
+            op.first=display.innerText;
+            console.log(op.first);
+        }else if (op.first !="" && op.operator !="" && op.second=="") {
+            display.innerText= `${e.target.innerText}`;
+            op.second=display.innerText;
+            console.log(op.second);  
+        } else if (op.first !="" && op.operator  !="" && op.second !="") {
+            display.innerText += `${e.target.innerText}`;
+            op.second=display.innerText;
+            console.log(op.second);
+         } else {
+            console.log(op.first);
+    };
 };
 
 function showOperator(e) {
