@@ -11,39 +11,46 @@ let operators=document.querySelectorAll(".operator");
 
 function add(a,b) {
     let c= a + b;
-    console.log(c);
+    return c;
 };
 
 function subtract(a,b) {
     let c=a - b;
-    console.log(c);
+    return c;
 };
 
 function multiply(a,b) {
     let c= a * b;
-    console.log(c);
+    return c;
 }
 
 function divide(a,b) {
     let c= a / b;
-    console.log(c);
+    return c;
 };
-
+//operate function isn't working anymore???
+console.log(op.first);
+console.log(op.operator);
+console.log(op.second);
 
 function operate(op) {
-    for (let operator in op) {
-        if (op[operator]=="+") {
+    switch(op.operator) {
+        case "+":
             add(op.first,op.second);
-        } else if (op[operator]=="-") {
+            break;
+        case "-":
             subtract(op.first,op.second);
-        } else if (op[operator]=="*") {
-            multiply(op.first,op.second);
-        } else if (op[operator]=="/") {
-            divide(op.first,op.second);
+            break;
+        case "*":
+            multiply(op.first, op.second);
+            break;
+        case "/":
+            divide(op.first, op.second);
+            break;
+        default:
+            console.log("error");
         };
     };
-
-};
 
 
 for (i=0; i< digits.length; i++) {
@@ -85,18 +92,20 @@ function showNumber(e) {
 };
 
 function showOperator(e) {
-    if (op.first !="" && op.operator=="") {
+        if (op.first !="" && op.operator=="") {
         display.innerText=`${e.target.innerText}`
         op.operator= display.innerText;
-    } else if (op.first !="" && op.operator !="" && op.second !="") {
+        } else if (op.first !="" && op.operator !="" && op.second !="") {
         let c=operate(op);
         display.innerText=`${e.target.innerText}`;
         op.first=c;
+        console.log(c);
         op.operator=display.innerText;
         op.second="";
-    } else if (op.first !="" && op.operator=="/" && op.second=="0") {
+        } else if (op.first !="" && op.operator=="/" && op.second=="0") {
         display.innerText="ERROR";
-};
+    };
+   // removeListener2();
 };
 
 function removeListener1() {
@@ -108,7 +117,7 @@ function removeListener1() {
         })
 }
 function removeListener2() {
-    operators[i].addEventListener("click", (e) => {
+    operators[i].removeEventListener("click", (e) => {
         showOperator(e);
         console.log(op.first);
         console.log(op.operator);
