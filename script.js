@@ -1,21 +1,13 @@
 let op= {
-    first: 2,
-    operator: "*",
-    second: 4,
+    first: "",
+    operator:"",
+    second: "",
 };
-const zero=document.getElementById("zero");
-const one=document.getElementById("one");
-const two=document.getElementById("two");
-const three=document.getElementById("three");
-const four=document.getElementById("four");
-const five=document.getElementById("five");
-const six=document.getElementById("six");
-const seven=document.getElementById("seven");
-const eight=document.getElementById("eight");
-const nine=document.getElementById("nine");
+
 let display=document.getElementById("display");
 let text= display.innerText;
 let digits= document.querySelectorAll(".digit");
+let operators=document.querySelectorAll(".operator");
 
 function add(a,b) {
     let c= a + b;
@@ -54,11 +46,14 @@ function operate(op) {
 };
 
 
-operate(op);
-
 for (i=0; i< digits.length; i++) {
     digits[i].addEventListener("click", (e) => {
     showNumber(e);
+    });
+};
+for (i=0; i<operators.length; i++) {
+    operators[i].addEventListener("click", (e) => {
+        showOperator(e);
     });
 };
 
@@ -66,4 +61,10 @@ function showNumber(e) {
     display.innerText += `${e.target.innerText}`;
     op.first= display.innerText;
     console.log(op.first);
+};
+
+function showOperator(e) {
+    display.innerText=`${e.target.innerText}`;
+    op.operator= display.innerText;
+    console.log(op.operator);
 };
