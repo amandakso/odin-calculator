@@ -9,6 +9,7 @@ let display=document.getElementById("display");
 let text= display.innerText;
 let digits= document.querySelectorAll(".digit");
 let operators=document.querySelectorAll(".operator");
+let equal=document.getElementById("equal");
 
 function add(a,b) {
     let c= parseFloat(a) + parseFloat(b);
@@ -79,6 +80,11 @@ for (i=0; i<operators.length; i++) {
     });
 };
 
+equal.addEventListener("click", (e) => {
+    showResult(e);
+});
+
+
 function showNumber(e) {
         if (op.first==""){
             display.innerText= `${e.target.innerText}`;
@@ -104,7 +110,7 @@ function showOperator(e) {
         if (op.first !="" && op.operator=="") {
         display.innerText=`${e.target.innerText}`
         op.operator= display.innerText;
-         } else if (op.first !="" && op.operator=="/" && op.second=="0") {
+        } else if (op.first !="" && op.operator=="/" && op.second=="0") {
          display.innerText="ERROR";
          resetOp();
         } else if (op.first !="" && op.operator !="" && op.second !="") {
@@ -116,6 +122,20 @@ function showOperator(e) {
     };
   // removeListener2();
 };
+
+function showResult(e) {
+    if (op.first !="" && op.operator=="/" && op.second=="0") {
+        display.innerText="ERROR";
+        resetOp();
+    } else if (op.first !="" && op.operator !="" && op.second !="") {
+        operate(op);
+        op.first=op.result;
+        display.innerText=op.result
+        op.operator="";
+        op.second="";
+    }
+}
+
 
 function removeListener1() {
     digits[i].removeEventListener("click", (e) => {
