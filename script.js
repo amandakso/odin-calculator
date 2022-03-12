@@ -50,16 +50,16 @@ for (i=0; i< digits.length; i++) {
     digits[i].addEventListener("click", (e) => {
     showNumber(e);
     console.log(op.first);
-console.log(op.second);
-console.log(op.operator);
+    console.log(op.operator);
+    console.log(op.second);
     });
 };
 for (i=0; i<operators.length; i++) {
     operators[i].addEventListener("click", (e) => {
         showOperator(e);
         console.log(op.first);
-console.log(op.second);
-console.log(op.operator);
+        console.log(op.operator);
+        console.log(op.second);
     });
 };
 
@@ -80,13 +80,38 @@ function showNumber(e) {
             display.innerText += `${e.target.innerText}`;
             op.second=display.innerText;
             console.log(op.second);
-         } else {
-            console.log(op.first);
     };
+    removeListener1();
 };
 
 function showOperator(e) {
-    display.innerText=`${e.target.innerText}`;
-    op.operator= display.innerText;
-    console.log(op.operator);
+    if (op.first !="" && op.operator=="") {
+        display.innerText=`${e.target.innerText}`
+        op.operator= display.innerText;
+    } else if (op.first !="" && op.operator !="" && op.second !="") {
+        let c=operate(op);
+        display.innerText=`${e.target.innerText}`;
+        op.first=c;
+        op.operator=display.innerText;
+        op.second="";
+    } else if (op.first !="" && op.operator=="/" && op.second=="0") {
+        display.innerText="ERROR";
+};
+};
+
+function removeListener1() {
+    digits[i].removeEventListener("click", (e) => {
+        showNumber(e);
+        console.log(op.first);
+        console.log(op.operator);
+        console.log(op.second);
+        })
+}
+function removeListener2() {
+    operators[i].addEventListener("click", (e) => {
+        showOperator(e);
+        console.log(op.first);
+        console.log(op.operator);
+        console.log(op.second);
+    });
 };
