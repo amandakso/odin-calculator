@@ -168,7 +168,6 @@ function showNumber(e) {
         if (num==false) {
         } else if (op.first==""){
             if (e.type!="click") {
-                console.log(e);
                 display.innerText= e;
                 op.first=display.innerText;
             }else {
@@ -186,13 +185,23 @@ function showNumber(e) {
             console.log(op.first);
             };
         }else if (op.first !="" && op.operator !="" && op.second=="") {
+            if (e.type!="click") {
+                display.innerText= e;
+                op.second=display.innerText;
+            }else{
             display.innerText= `${e.target.innerText}`;
             op.second=display.innerText;
-            console.log(op.second);  
+            console.log(op.second);
+            };  
         } else if (op.first !="" && op.operator  !="" && op.second !="") {
+            if (e.type!="click") {
+                display.innerText+= e;
+                op.second=display.innerText;
+            }else {
             display.innerText += `${e.target.innerText}`;
             op.second=display.innerText;
             console.log(op.second);
+        };
     };
     removeListener1();
 };
