@@ -167,13 +167,24 @@ window.addEventListener("keydown", (e) => {
 function showNumber(e) {
         if (num==false) {
         } else if (op.first==""){
+            if (e.type!="click") {
+                console.log(e);
+                display.innerText= e;
+                op.first=display.innerText;
+            }else {
             display.innerText= `${e.target.innerText}`;
             op.first=display.innerText;
             console.log(op.first);
+            };
         } else if (op.first !="" && op.operator=="") {
+            if (e.type !="click") {
+                display.innerText+= e;
+                op.first=display.innerText;
+            }else {
             display.innerText +=`${e.target.innerText}`;
             op.first=display.innerText;
             console.log(op.first);
+            };
         }else if (op.first !="" && op.operator !="" && op.second=="") {
             display.innerText= `${e.target.innerText}`;
             op.second=display.innerText;
@@ -288,6 +299,7 @@ function resetOp() {
     op.second="";
     op.operator="";
     dp=true;
+    num=true;
     console.log(op.operator);
 };
 
