@@ -14,6 +14,7 @@ let operators=document.querySelectorAll(".operator");
 let equal=document.getElementById("equal");
 let clear=document.getElementById("clear");
 let dec=document.getElementById("dec");
+let backspace=document.getElementById("backspace");
 
 function add(a,b) {
     let c= parseFloat(a) + parseFloat(b);
@@ -141,7 +142,11 @@ dec.addEventListener("click", (e) => {
     addDecimal(e);
 });
 
+backspace.addEventListener("click", (e) => {
+    deleteNum(e);
+});
 
+//can add to numbers string after equal sign. need to be unable to add numbers with this)
 
 function showNumber(e) {
         if (op.first==""){
@@ -209,6 +214,22 @@ function addDecimal(e) {
         dp=false;
     };
     removeListener2();
+};
+
+function deleteNum(e) {
+    if (op.first !="" && op.operator=="") {
+        let a=op.first;
+        let b=a.slice(0,a.length-1);
+        op.first=b;
+        display.innerText=op.first;
+        console.log(b);
+    } else if (op.first !="" && op.operator !="" && op.second !="") {
+        let a=op.second;
+        let b=a.slice(0,a.length-1);
+        op.second=b;
+        display.innerText=op.second;
+        console.log(b);
+    };
 };
 
 
