@@ -11,6 +11,7 @@ let digits= document.querySelectorAll(".digit");
 let operators=document.querySelectorAll(".operator");
 let equal=document.getElementById("equal");
 let clear=document.getElementById("clear");
+let dec=document.getElementById("dec");
 
 function add(a,b) {
     let c= parseFloat(a) + parseFloat(b);
@@ -83,7 +84,7 @@ function divide(a,b) {
         console.log(op.result);
     };
 };
-//operate function isn't working anymore???
+
 console.log(op.first);
 console.log(op.operator);
 console.log(op.second);
@@ -132,6 +133,10 @@ equal.addEventListener("click", (e) => {
 clear.addEventListener("click", (e) => {
     resetOp(e);
     display.innerText=op.first;
+});
+
+dec.addEventListener("click", (e) => {
+    addDecimal(e);
 });
 
 
@@ -186,6 +191,18 @@ function showResult(e) {
     }
 }
 
+function addDecimal(e) {
+    if (op.first.includes(".")==true && op.operator==""|| op.second.includes(".")==true) {
+
+    } else if (op.first !="" && op.operator=="") {
+        op.first +=`${e.target.innerText}`;
+        display.innerText=op.first;
+    } else if (op.first !="" && op.operator !="" && op.second !=""){
+        op.second += `${e.target.innerText}`;
+        display.innerText=op.second;
+    };
+};
+
 
 function removeListener1() {
     digits[i].removeEventListener("click", (e) => {
@@ -195,6 +212,7 @@ function removeListener1() {
         console.log(op.second);
         })
 }
+
 
 function resetOp() {
     op.first="";
