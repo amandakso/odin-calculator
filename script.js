@@ -201,6 +201,7 @@ function showOperator(e) {
             display.innerText=`${e.target.innerText}`;
             op.operator=display.innerText;
             op.second="";
+            dp=true;
     };
 };
 
@@ -236,19 +237,33 @@ function addDecimal(e) {
 };
 
 function deleteNum(e) {
+    let a=op.first;
+    let b=op.second;
     if(num==false) {
-    } else if (op.first !="" && op.operator=="") {
-        let a=op.first;
-        let b=a.slice(0,a.length-1);
-        op.first=b;
+    } else if (a.slice(-1)=="."){
+        let c=a.slice(0,a.length-1);
+        op.first=c;
         display.innerText=op.first;
-        console.log(b);
-    } else if (op.first !="" && op.operator !="" && op.second !="") {
-        let a=op.second;
-        let b=a.slice(0,a.length-1);
-        op.second=b;
+        dp=true;
+        console.log(dp);
+        console.log(c);
+    }else if (b.slice(-1)==".") {
+        let c=b.slice(0,b.length-1);
+        op.second=c;
         display.innerText=op.second;
-        console.log(b);
+        dp=true;
+        console.log(dp);
+        console.log(c);
+    } else if (op.first !="" && op.operator=="") {
+        let c=a.slice(0,a.length-1);
+        op.first=c;
+        display.innerText=op.first;
+        console.log(c);
+    } else if (op.first !="" && op.operator !="" && op.second !="") {
+        let c=b.slice(0,b.length-1);
+        op.second=c;
+        display.innerText=op.second;
+        console.log(c);
     };
 };
 
