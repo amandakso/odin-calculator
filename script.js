@@ -201,6 +201,7 @@ function addDecimal(e) {
         op.second += `${e.target.innerText}`;
         display.innerText=op.second;
     };
+    removeListener2();
 };
 
 
@@ -213,6 +214,11 @@ function removeListener1() {
         })
 }
 
+function removeListener2() {
+    dec.removeEventListener("click", (e) => {
+        addDecimal(e);
+    });
+};
 
 function resetOp() {
     op.first="";
