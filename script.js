@@ -5,6 +5,8 @@ let op= {
     result:"",
 };
 
+let dp= true;
+
 let display=document.getElementById("display");
 let text= display.innerText;
 let digits= document.querySelectorAll(".digit");
@@ -166,6 +168,7 @@ function showOperator(e) {
         if (op.first !="" && op.operator=="") {
             display.innerText=`${e.target.innerText}`
             op.operator= display.innerText;
+            dp=true;
         } else if (op.first !="" && op.operator=="/" && op.second=="0") {
              display.innerText="ERROR";
              resetOp();
@@ -188,18 +191,22 @@ function showResult(e) {
         display.innerText=op.result
         op.operator="";
         op.second="";
+        dp=true;
     }
 }
 
+//can't use includes for objects
 function addDecimal(e) {
-    if (op.first.includes(".")==true && op.operator==""|| op.second.includes(".")==true) {
+    if (dp==false) {
 
-    } else if (op.first !="" && op.operator=="") {
+    } else if (op.first !="" && op.operator=="" && dp==true) {
         op.first +=`${e.target.innerText}`;
         display.innerText=op.first;
-    } else if (op.first !="" && op.operator !="" && op.second !=""){
+        dp=false;
+    } else if (op.first !="" && op.operator !="" && dp==true){
         op.second += `${e.target.innerText}`;
         display.innerText=op.second;
+        dp=false;
     };
     removeListener2();
 };
@@ -224,6 +231,7 @@ function resetOp() {
     op.first="";
     op.second="";
     op.operator="";
+    dp=true;
     console.log(op.operator);
 };
 
