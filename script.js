@@ -14,9 +14,20 @@ let clear=document.getElementById("clear");
 
 function add(a,b) {
     let c= parseFloat(a) + parseFloat(b);
+    if (Number.isInteger(c)=="true") {
     console.log(c);
     op.result=c;
     console.log(op.result);
+    } else if (Number.isInteger(c * 100000)=="true") {
+        console.log(c);
+        op.result=c;
+        console.log(op.result);
+    } else if (Number.isInteger(c*100000)!= "true") {
+        let d=c.toFixed(5);
+        console.log(d);
+        op.result=d;
+        console.log(op.result);
+    };
 };
 
 function subtract(a,b) {
@@ -151,21 +162,12 @@ function removeListener1() {
         console.log(op.second);
         })
 }
-//not clearing op.operator??
+
 function resetOp() {
     op.first="";
     op.second="";
     op.operator="";
     console.log(op.operator);
-}
-
-
-function removeListener2() {
-    operators[i].removeEventListener("click", (e) => {
-        showOperator(e);
-        console.log(op.first);
-        console.log(op.operator);
-        console.log(op.second);
-    });
 };
+
 
