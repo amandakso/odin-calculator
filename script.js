@@ -6,6 +6,7 @@ let op= {
 };
 
 let dp= true;
+let num=true;
 
 let display=document.getElementById("display");
 let text= display.innerText;
@@ -149,7 +150,8 @@ backspace.addEventListener("click", (e) => {
 //can add to numbers string after equal sign. need to be unable to add numbers with this)
 
 function showNumber(e) {
-        if (op.first==""){
+        if (num==false) {
+        } else if (op.first==""){
             display.innerText= `${e.target.innerText}`;
             op.first=display.innerText;
             console.log(op.first);
@@ -174,6 +176,7 @@ function showOperator(e) {
             display.innerText=`${e.target.innerText}`
             op.operator= display.innerText;
             dp=true;
+            num=true;
         } else if (op.first !="" && op.operator=="/" && op.second=="0") {
              display.innerText="ERROR";
              resetOp();
@@ -197,12 +200,13 @@ function showResult(e) {
         op.operator="";
         op.second="";
         dp=true;
+        num=false;
     }
 }
 
 //can't use includes for objects
 function addDecimal(e) {
-    if (dp==false) {
+    if (dp==false || num==false) {
 
     } else if (op.first !="" && op.operator=="" && dp==true) {
         op.first +=`${e.target.innerText}`;
