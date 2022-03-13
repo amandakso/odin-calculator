@@ -147,7 +147,22 @@ backspace.addEventListener("click", (e) => {
     deleteNum(e);
 });
 
-//can add to numbers string after equal sign. need to be unable to add numbers with this)
+window.addEventListener("keydown", (e) => {
+    let press=e.key;
+    console.log(press);
+    if (Number.isInteger(parseFloat(press))==true) {
+        showNumber(press);
+    } else if (press== "+" || press== "-" ||press== "*" || press== "/") {
+        showOperator(press);
+    } else if (press=="Backspace") {
+        deleteNum(press);
+    } else if (press=="Enter" || press=="=") {
+        showResult(press);
+    } else if (press==".") {
+        addDecimal(press);
+    };
+});
+
 
 function showNumber(e) {
         if (num==false) {
