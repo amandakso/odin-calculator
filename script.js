@@ -221,7 +221,8 @@ function addDecimal(e) {
 };
 
 function deleteNum(e) {
-    if (op.first !="" && op.operator=="") {
+    if(num==false) {
+    } else if (op.first !="" && op.operator=="") {
         let a=op.first;
         let b=a.slice(0,a.length-1);
         op.first=b;
