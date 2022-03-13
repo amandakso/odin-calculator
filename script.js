@@ -32,23 +32,56 @@ function add(a,b) {
 
 function subtract(a,b) {
     let c=a - b;
-    console.log(c);
-    op.result=c;
-    console.log(op.result);
+    if (Number.isInteger(c)=="true") {
+        console.log(c);
+        op.result=c;
+        console.log(op.result);
+    } else if (Number.isInteger(c * 100000)=="true") {
+        console.log(c);
+        op.result=c;
+        console.log(op.result);
+    } else if (Number.isInteger(c*100000)!= "true") {
+        let d=c.toFixed(5);
+        console.log(d);
+        op.result=d;
+        console.log(op.result);
+    };
 };
 
 function multiply(a,b) {
     c= a * b;
-    console.log(c);
-    op.result=c;
-    console.log(op.result);
+    if (Number.isInteger(c)=="true") {
+        console.log(c);
+        op.result=c;
+        console.log(op.result);
+    } else if (Number.isInteger(c * 100000)=="true") {
+        console.log(c);
+        op.result=c;
+        console.log(op.result);
+    } else if (Number.isInteger(c*100000)!= "true") {
+        let d=c.toFixed(5);
+        console.log(d);
+        op.result=d;
+        console.log(op.result);
+    };
 }
 
 function divide(a,b) {
     let c= a / b;
-    console.log(c);
-    op.result=c;
-    console.log(op.result);
+    if (Number.isInteger(c)=="true") {
+        console.log(c);
+        op.result=c;
+        console.log(op.result);
+    } else if (Number.isInteger(c * 100000)=="true") {
+        console.log(c);
+        op.result=c;
+        console.log(op.result);
+    } else if (Number.isInteger(c*100000)!= "true") {
+        let d=c.toFixed(5);
+        console.log(d);
+        op.result=d;
+        console.log(op.result);
+    };
 };
 //operate function isn't working anymore???
 console.log(op.first);
