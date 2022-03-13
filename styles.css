@@ -29,6 +29,7 @@ button {
     border: solid black 5px;
     background-color: #DCDCDC;
     height: 55px;
+    font-family: 'PT Mono', monospace;
 }
 .buttons {
     display: flex;
