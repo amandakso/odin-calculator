@@ -20,78 +20,50 @@ let backspace=document.getElementById("backspace");
 function add(a,b) {
     let c= parseFloat(a) + parseFloat(b);
     if (Number.isInteger(c)==true) {
-    console.log(c);
     op.result=c;
-    console.log(op.result);
     } else if (Number.isInteger(c * 100000)==true) {
-        console.log(c);
         op.result=c;
-        console.log(op.result);
     } else if (Number.isInteger(c*100000)!= true) {
         let d=c.toFixed(5);
-        console.log(d);
         op.result=d;
-        console.log(op.result);
     };
 };
 
 function subtract(a,b) {
     let c=a - b;
     if (Number.isInteger(c)==true) {
-        console.log(c);
         op.result=c;
-        console.log(op.result);
     } else if (Number.isInteger(c * 100000)==true) {
-        console.log(c);
         op.result=c;
-        console.log(op.result);
     } else if (Number.isInteger(c*100000)!= true) {
         let d=c.toFixed(5);
-        console.log(d);
         op.result=d;
-        console.log(op.result);
     };
 };
 
 function multiply(a,b) {
     c= a * b;
     if (Number.isInteger(c)==true) {
-        console.log(c);
         op.result=c;
-        console.log(op.result);
     } else if (Number.isInteger(c * 100000)==true) {
-        console.log(c);
         op.result=c;
-        console.log(op.result);
     } else if (Number.isInteger(c*100000)!= true) {
         let d=c.toFixed(5);
-        console.log(d);
         op.result=d;
-        console.log(op.result);
     };
 }
 
 function divide(a,b) {
     let c= a / b;
     if (Number.isInteger(c)==true) {
-        console.log(c);
         op.result=c;
-        console.log(op.result);
     } else if (Number.isInteger(c * 100000)==true) {
-        console.log(c);
         op.result=c;
-        console.log(op.result);
     } else if (Number.isInteger(c*100000)!= true) {
         let d=c.toFixed(5);
-        console.log(d);
         op.result=d;
-        console.log(op.result);
     };
 };
-
-console.log(op.first);
-console.log(op.operator);
-console.log(op.second);
 
 function operate(op) {
     switch(op.operator) {
@@ -116,17 +88,11 @@ function operate(op) {
 for (i=0; i< digits.length; i++) {
     digits[i].addEventListener("click", (e) => {
     showNumber(e);
-    console.log(op.first);
-    console.log(op.operator);
-    console.log(op.second);
     });
 };
 for (i=0; i<operators.length; i++) {
     operators[i].addEventListener("click", (e) => {
         showOperator(e);
-        console.log(op.first);
-        console.log(op.operator);
-        console.log(op.second);
     });
 };
 
@@ -176,7 +142,6 @@ function showNumber(e) {
             }else {
             display.innerText= `${e.target.innerText}`;
             op.first=display.innerText;
-            console.log(op.first);
             };
         } else if (op.first !="" && op.operator=="") {
             if (e.type !="click") {
@@ -185,7 +150,6 @@ function showNumber(e) {
             }else {
             display.innerText +=`${e.target.innerText}`;
             op.first=display.innerText;
-            console.log(op.first);
             };
         }else if (op.first !="" && op.operator !="" && op.second=="") {
             if (e.type!="click") {
@@ -194,7 +158,6 @@ function showNumber(e) {
             }else{
             display.innerText= `${e.target.innerText}`;
             op.second=display.innerText;
-            console.log(op.second);
             };  
         } else if (op.first !="" && op.operator  !="" && op.second !="") {
             if (e.type!="click") {
@@ -203,7 +166,6 @@ function showNumber(e) {
             }else {
             display.innerText += `${e.target.innerText}`;
             op.second=display.innerText;
-            console.log(op.second);
         };
     };
     removeListener1();
@@ -298,37 +260,28 @@ function deleteNum(e) {
         op.first=c;
         display.innerText=op.first;
         dp=true;
-        console.log(dp);
-        console.log(c);
     }else if (b.slice(-1)==".") {
         let c=b.slice(0,b.length-1);
         op.second=c;
         display.innerText=op.second;
         dp=true;
-        console.log(dp);
-        console.log(c);
     } else if (op.first !="" && op.operator=="") {
         let c=a.slice(0,a.length-1);
         op.first=c;
         display.innerText=op.first;
-        console.log(c);
     } else if (op.first !="" && op.operator !="" && op.second !="") {
         let c=b.slice(0,b.length-1);
         op.second=c;
         display.innerText=op.second;
-        console.log(c);
     };
 };
 
 
 function removeListener1() {
     digits[i].removeEventListener("click", (e) => {
-        showNumber(e);
-        console.log(op.first);
-        console.log(op.operator);
-        console.log(op.second);
-        })
-}
+    showNumber(e);
+    });
+};
 
 function removeListener2() {
     dec.removeEventListener("click", (e) => {
@@ -342,7 +295,6 @@ function resetOp() {
     op.operator="";
     dp=true;
     num=true;
-    console.log(op.operator);
 };
 
 
