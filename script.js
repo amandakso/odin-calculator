@@ -160,6 +160,9 @@ window.addEventListener("keydown", (e) => {
         showResult(press);
     } else if (press==".") {
         addDecimal(press);
+    } else if (press=="a") {
+        resetOp();
+        display.innerText=op.first;
     };
 });
 
