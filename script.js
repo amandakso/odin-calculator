@@ -208,20 +208,38 @@ function showNumber(e) {
 
 function showOperator(e) {
         if (op.first !="" && op.operator=="") {
+            if (e.type != "click") {
+                display.innerText=e;
+                op.operator=display.innerText;
+                dp=true;
+                num=true;
+            } else {
             display.innerText=`${e.target.innerText}`
             op.operator= display.innerText;
             dp=true;
             num=true;
+            };
         } else if (op.first !="" && op.operator=="/" && op.second=="0") {
              display.innerText="ERROR";
              resetOp();
         } else if (op.first !="" && op.operator !="" && op.second !="") {
+            if (e.type != "click") {
+                operate(op);
+                op.first=op.result;
+                display.innerText=e;
+                op.operator=display.innerText;
+                op.second="";
+                dp=true;
+                num=true;
+            } else {
              operate(op);
             op.first=op.result;
             display.innerText=`${e.target.innerText}`;
             op.operator=display.innerText;
             op.second="";
             dp=true;
+            num=true;
+            };
     };
 };
 
