@@ -185,7 +185,7 @@ function showOperator(e) {
             num=true;
             };
         } else if (op.first !="" && op.operator=="/" && op.second=="0") {
-             display.innerText="ERROR";
+             display.innerText="no...";
              resetOp();
         } else if (op.first !="" && op.operator !="" && op.second !="") {
             if (e.type != "click") {
@@ -210,7 +210,7 @@ function showOperator(e) {
 
 function showResult(e) {
     if (op.first !="" && op.operator=="/" && op.second=="0") {
-        display.innerText="ERROR";
+        display.innerText="no...";
         resetOp();
     } else if (op.first !="" && op.operator !="" && op.second !="") {
         operate(op);
@@ -223,7 +223,6 @@ function showResult(e) {
     }
 }
 
-//can't use includes for objects
 function addDecimal(e) {
     if (dp==false || num==false) {
 
