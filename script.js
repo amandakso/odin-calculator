@@ -227,14 +227,22 @@ function showResult(e) {
 function addDecimal(e) {
     if (dp==false || num==false) {
 
+    } else if (op.first=="" && dp==true){
+        if(e.type !="click") {
+            op.first+= e;
+            display.innerText=op.first;
+            dp=false;
+        } else {
+            op.first += `${e.target.innerText}`;
+            display.innerText=op.first;
+            dp=false;
+        };
     } else if (op.first !="" && op.operator=="" && dp==true) {
         if (e.type !="click") {
-            console.log(e);
             op.first += e;
             display.innerText=op.first;
             dp=false;
         } else {
-            console.log(e.target.innerText);
         op.first +=`${e.target.innerText}`;
         display.innerText=op.first;
         dp=false;
