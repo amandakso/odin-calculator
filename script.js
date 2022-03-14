@@ -263,13 +263,25 @@ function addDecimal(e) {
     if (dp==false || num==false) {
 
     } else if (op.first !="" && op.operator=="" && dp==true) {
+        if (e !="click") {
+            op.first += e;
+            display.innerText=op.first;
+            dp=false;
+        } else {
         op.first +=`${e.target.innerText}`;
         display.innerText=op.first;
         dp=false;
+        };
     } else if (op.first !="" && op.operator !="" && dp==true){
+        if (e !="click") {
+            op.second += e;
+            display.innerText=op.second;
+            dp=false;
+        }else {
         op.second += `${e.target.innerText}`;
         display.innerText=op.second;
         dp=false;
+        };
     };
     removeListener2();
 };
