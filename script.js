@@ -228,17 +228,19 @@ function addDecimal(e) {
     if (dp==false || num==false) {
 
     } else if (op.first !="" && op.operator=="" && dp==true) {
-        if (e !="click") {
+        if (e.type !="click") {
+            console.log(e);
             op.first += e;
             display.innerText=op.first;
             dp=false;
         } else {
+            console.log(e.target.innerText);
         op.first +=`${e.target.innerText}`;
         display.innerText=op.first;
         dp=false;
         };
     } else if (op.first !="" && op.operator !="" && dp==true){
-        if (e !="click") {
+        if (e.type !="click") {
             op.second += e;
             display.innerText=op.second;
             dp=false;
